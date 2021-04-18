@@ -1,0 +1,338 @@
+@import url("../fonts/Lato/lato.css");
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/Gilroy/Gilroy-Regular.ttf");
+}
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.read-more {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #333;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+}
+.read-more .arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 100% -40%;
+  transform: translate(-50%, -50%);
+  transform: rotate(45deg);
+  border-bottom: 3px solid #333;
+  border-right: 3px solid #333;
+}
+
+.btn {
+  text-align: center;
+  padding: 15px 35px;
+  color: #fff;
+  font-family: "Gilroy";
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main-header {
+  position: fixed;
+  width: 100%;
+  padding: 35px 10%;
+  background-color: rgba(51, 51, 51, 0.651);
+}
+.main-header .flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+.main-header .logo {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+.main-header .logo .logo-name {
+  font-family: "Lato";
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.main-header .navbar {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-header .navbar a {
+  color: #fff;
+  font-family: "Gilroy", sans-serif;
+  font-size: 1.12rem;
+}
+.main-header .fas {
+  color: #fff;
+  font-size: 1.5rem;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.slider {
+  padding-top: 341px;
+  padding-bottom: 329px;
+  background-image: url("../img/bgc.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider .flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.slider .flex-row .arrow {
+  width: 40px;
+  height: 40px;
+  transform: rotate(135deg);
+}
+.slider .flex-row .arrow.arrow-right {
+  border-left: 6px solid #fff;
+  border-top: 6px solid #fff;
+}
+.slider .flex-row .arrow.arrow-left {
+  border-right: 6px solid #fff;
+  border-bottom: 6px solid #fff;
+}
+.slider .flex-row .slider-content-title {
+  font-family: "Lato";
+  font-size: 2.9rem;
+  color: #fff;
+  margin-bottom: 4px;
+  text-align: center;
+}
+.slider .flex-row .slider-content-subtitle {
+  margin-bottom: 28px;
+  font-size: 1.9rem;
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  font-family: "Gilroy";
+}
+.slider .flex-row .btn-block {
+  text-align: center;
+}
+.slider .flex-row .btn-block .btn {
+  background-color: #333333;
+}
+
+.tours-section {
+  padding: 47px 0;
+}
+.tours-section .tour-section-title {
+  font-size: 1.32rem;
+  font-family: "Gilroy";
+  color: #333333;
+  text-align: center;
+}
+.tours-section .tour-section-subtitle {
+  font-family: "Lato";
+  font-size: 2rem;
+  padding: 5px 0 10px;
+  text-align: center;
+}
+
+.tours-cards .flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.tours-cards .tour-card {
+  width: 30%;
+  background-image: url("../img/kiyv.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 40px;
+}
+.tours-cards .tour-card .tour-pricelist {
+  padding: 4px 22px;
+  float: right;
+  background-color: rgba(51, 51, 51, 0.685);
+  border-radius: 0px 0px 0px 5px;
+}
+.tours-cards .tour-card .tour-pricelist .tour-price {
+  color: #fff;
+  font-family: "Gilroy";
+  font-size: 1.26rem;
+}
+.tours-cards .tour-card .tour-pricelist .tour-days {
+  color: #fff;
+  font-family: "Gilroy";
+  font-size: 1.13rem;
+}
+.tours-cards .tour-card .tour-city {
+  padding-top: 170px;
+  padding-bottom: 40px;
+  text-align: center;
+  font-family: "Gilroy";
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 3px;
+}
+.tours-cards .tour-card .tour-city::before {
+  content: "";
+  display: block;
+  clear: both;
+}
+.tours-cards .tour-card .tour-info {
+  padding: 0 5px;
+}
+.tours-cards .tour-card .tour-info .date-from {
+  font-family: "Gilroy";
+  color: #fff;
+}
+.tours-cards .tour-card .tour-info .flex-row {
+  padding: 5px 0;
+}
+.tours-cards .tour-card .tour-info .flex-row .hotel, .tours-cards .tour-card .tour-info .flex-row .place-from {
+  font-family: "Gilroy";
+  color: #fff;
+}
+
+.consult-section {
+  padding: 100px 0;
+  text-align: center;
+  background-image: url("../img/consult.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.consult-section .consult-subtitle {
+  font-family: "Gilroy";
+  font-size: 1.3rem;
+  color: #fff;
+}
+.consult-section .consult-title {
+  font-family: "Lato";
+  font-size: 2.25rem;
+  padding: 15px 0 33px;
+  color: #fff;
+}
+.consult-section .consult-text {
+  font-family: "Gilroy";
+  font-size: 1.1rem;
+  line-height: 1.5;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  color: #fff;
+}
+.consult-section .btn {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.search-section {
+  padding: 70px 0;
+}
+.search-section .search-title {
+  font-family: "Lato";
+  font-size: 1.9rem;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+}
+.search-section .advanced-search {
+  padding: 29px 0;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 75px;
+  width: 90%;
+  margin: 30px auto;
+  border-radius: 5px;
+}
+.search-section .advanced-search .fas {
+  margin-right: 5px;
+}
+.search-section .advanced-search .grid-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 12% 23% 16% 16% 16% 13%;
+}
+.search-section .advanced-search .grid-container div {
+  padding: 10px 0;
+  padding-left: 20px;
+  border-right: 2px solid #fff;
+}
+.search-section .advanced-search .grid-container div p {
+  color: #fff;
+  font-family: "Gilroy";
+}
+.search-section .advanced-search .grid-container .search-by-rating .fas {
+  color: #fff;
+}
+.search-section .advanced-search .grid-container .search-by-rating .fa-hotel {
+  display: inline-block;
+  margin-right: 20px;
+}
+.search-section .tour-card {
+  width: 23%;
+}
+
+.faq-section {
+  background-color: #333;
+}
+.faq-section .faq-question-block {
+  padding: 40px 0;
+}
+.faq-section .faq-question-block .faq-section-question {
+  font-size: 2.27rem;
+  margin-bottom: 10px;
+  font-family: "Lato";
+  color: #fff;
+}
+.faq-section .faq-question-block .faq-section-response {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-family: "Gilroy";
+  color: #fff;
+}
+
+footer {
+  padding: 50px 0 20px;
+}
+footer .container {
+  width: 60%;
+}
+footer .contact-title {
+  font-family: "Gilroy";
+  text-transform: uppercase;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+}
+footer p {
+  padding: 10px 0;
+  font-family: "Gilroy";
+  font-size: 0.9rem;
+}
+footer .copyright {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
