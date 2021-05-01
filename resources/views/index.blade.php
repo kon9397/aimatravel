@@ -48,7 +48,6 @@
     <div class="container">
         <h2 class="tour-section-title">Наші гарячі тури та путівки</h2>
         <h3 class="tour-section-subtitle">За приємною ціною!</h3>
-        <pre>{{$tours}}</pre>
         <div class="tours-cards">
             <div class="flex-row">
                 <div class="tour-card">

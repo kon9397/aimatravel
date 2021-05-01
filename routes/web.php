@@ -19,3 +19,9 @@ Route::resource('/', TourController::class);
 
 Route::get('tours/add', "\App\Http\Controllers\TourController@addFormIndex");
 Route::post('tours/add', array('as' => 'tour.store', 'uses' => '\App\Http\Controllers\TourController@addTour'));
+
+Route::get('tours/edit/{id}', "\App\Http\Controllers\TourController@editTour");
+
+Route::post('tours/edit/{id}', array('as' => 'tour.update', 'uses' => '\App\Http\Controllers\TourController@updateTour'));
+
+Route::get('tours/delete/{id}', '\App\Http\Controllers\TourController@deleteTour');

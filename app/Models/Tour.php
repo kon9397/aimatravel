@@ -12,4 +12,8 @@ class Tour extends Model
     protected $table = 'tours';
     protected $primaryKey = 'tour_id';
     public $timestamps = false;
+
+    public function hotel() {
+        return $this->hasOne(Hotel::class, 'hotel_id', 'hotel_id');
+    }
 }
