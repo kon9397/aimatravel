@@ -255,40 +255,104 @@ a {
   text-align: center;
   font-weight: bold;
 }
-.search-section .advanced-search {
-  padding: 29px 0;
-  background-color: #333333;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 75px;
-  width: 90%;
-  margin: 30px auto;
+.search-section .advanced-search .advanced-search-form {
+  margin: 15px auto;
+  width: 60%;
+}
+.search-section .advanced-search .advanced-search-form .search-input-group {
+  padding: 10px;
+  background-color: #333;
   border-radius: 5px;
 }
-.search-section .advanced-search .fas {
-  margin-right: 5px;
-}
-.search-section .advanced-search .grid-container {
-  display: grid;
+.search-section .advanced-search .advanced-search-form #searchInput {
+  display: inline-block;
   width: 100%;
-  grid-template-columns: 12% 23% 16% 16% 16% 13%;
+  font-family: "Gilroy";
+  font-size: 1.2rem;
+  color: #333;
+  padding: 15px 28px;
+  border: none;
+  outline: none;
 }
-.search-section .advanced-search .grid-container div {
-  padding: 10px 0;
-  padding-left: 20px;
-  border-right: 2px solid #fff;
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled {
+  background-color: #333;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
 }
-.search-section .advanced-search .grid-container div p {
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled label {
   color: #fff;
   font-family: "Gilroy";
 }
-.search-section .advanced-search .grid-container .search-by-rating .fas {
-  color: #fff;
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
 }
-.search-section .advanced-search .grid-container .search-by-rating .fa-hotel {
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkbox-container {
+  display: block;
+  position: relative;
+  width: 30%;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: #fff;
+  font-family: "Gilroy";
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkbox-name {
+  vertical-align: middle;
   display: inline-block;
-  margin-right: 20px;
+  margin-top: 2px;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkbox-container input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  vertical-align: middle;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkbox-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .checkbox-container .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 3px;
+  height: 8px;
+  border: solid #333;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .search-section .tour-card {
   width: 23%;

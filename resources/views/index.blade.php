@@ -192,33 +192,63 @@
     <div class="container">
         <h2 class="search-title">Знайдіть тур саме для вас</h2>
         <div class="advanced-search">
-            <div class="grid-container">
-                <div class="search-by-word">
-                    <p><i class="fas fa-search"></i>Пошук</p>
+            <form class="advanced-search-form">
+                <div class="form-group search-input-group">
+                    <input type="text" id="searchInput" name="searchInput" placeholder="Пошук">
                 </div>
-                <div class="search-by-rating">
-                    <i class="fas fa-hotel"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="search-by-city">
-                    <p>Усі міста</p>
-                </div>
-                <div class="search-by-nights">
-                    <p>7-8</p>
-                </div>
-                <div class="search-by-persons">
-                    <p>1-2</p>
-                </div>
-                <div class="search-by-from">
-                    <p>Україна</p>
-                </div>
-            </div>
+                <div class="advanced-search-toggled">
+                    <div class="form-row">
+                        <label class="checkbox-container">
+                            <span class="checkbox-name">Раніше заброньовані</span>
+                            <input type="checkbox" name="earlyBooked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="checkbox-name">Екскурсійні тури</span>
+                            <input type="checkbox" name="earlyBooked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="checkbox-name">Туристичні страховки</span>
+                            <input type="checkbox" name="earlyBooked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="checkbox-name">Тури на свята</span>
+                            <input type="checkbox" name="earlyBooked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="checkbox-name">Пакетні тури</span>
+                            <input type="checkbox" name="earlyBooked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="checkbox-name">Тести і довідки на COVID-19</span>
+                            <input type="checkbox" name="earlyBooked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="checkbox-name">Корпоративні тури</span>
+                            <input type="checkbox" name="earlyBooked">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateFrom">Від</label>
+                            <input type="date" name="dateFrom" id="dateFrom">
+                        </div>
+                        <div class="form-group">
+                            <label for="daysAmount">Кількість днів</label>
+                            <input type="date" name="dateTo" id="dateTo">
+                        </div>
 
+                    </div>
 
+                </div>
+                <p>Розширений пошук</p>
+            </form>
         </div>
         <div class="tours-cards">
             <div class="flex-row">
