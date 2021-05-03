@@ -194,7 +194,7 @@
         <div class="advanced-search">
             <form class="advanced-search-form">
                 <div class="form-group search-input-group">
-                    <input type="text" id="searchInput" name="searchInput" placeholder="Пошук">
+                    <input type="text" id="searchInput" name="tourName" placeholder="Пошук">
                 </div>
                 <div class="advanced-search-toggled">
                     <div class="form-row">
@@ -205,32 +205,32 @@
                         </label>
                         <label class="checkbox-container">
                             <span class="checkbox-name">Екскурсійні тури</span>
-                            <input type="checkbox" name="earlyBooked">
+                            <input type="checkbox" name="guideTour">
                             <span class="checkmark"></span>
                         </label>
                         <label class="checkbox-container">
                             <span class="checkbox-name">Туристичні страховки</span>
-                            <input type="checkbox" name="earlyBooked">
+                            <input type="checkbox" name="touristInsurance">
                             <span class="checkmark"></span>
                         </label>
                         <label class="checkbox-container">
                             <span class="checkbox-name">Тури на свята</span>
-                            <input type="checkbox" name="earlyBooked">
+                            <input type="checkbox" name="holidaysTour">
                             <span class="checkmark"></span>
                         </label>
                         <label class="checkbox-container">
                             <span class="checkbox-name">Пакетні тури</span>
-                            <input type="checkbox" name="earlyBooked">
+                            <input type="checkbox" name="packTour">
                             <span class="checkmark"></span>
                         </label>
                         <label class="checkbox-container">
                             <span class="checkbox-name">Тести і довідки на COVID-19</span>
-                            <input type="checkbox" name="earlyBooked">
+                            <input type="checkbox" name="covidTests">
                             <span class="checkmark"></span>
                         </label>
                         <label class="checkbox-container">
                             <span class="checkbox-name">Корпоративні тури</span>
-                            <input type="checkbox" name="earlyBooked">
+                            <input type="checkbox" name="corpTours">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -241,13 +241,14 @@
                         </div>
                         <div class="form-group">
                             <label for="daysAmount">Кількість днів</label>
-                            <input type="date" name="dateTo" id="dateTo">
+                            <input type="number" name="daysAmount" id="daysAmount">
                         </div>
+                        <button type="submit">Знайти</button>
 
                     </div>
 
                 </div>
-                <p>Розширений пошук</p>
+                <p class="advanced-search-switcher">Розширений пошук</p>
             </form>
         </div>
         <div class="tours-cards">
@@ -456,5 +457,6 @@
 
 
 <script src="https://kit.fontawesome.com/9cb0211d53.js" crossorigin="anonymous"></script>
+<script src="{{URL::to('assets/js/app.js')}}"></script>
 </body>
 </html>

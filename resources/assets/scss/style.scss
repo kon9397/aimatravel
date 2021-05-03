@@ -307,6 +307,11 @@ a {
                 padding: 10px;
                 background-color: #333;
                 border-radius: 5px;
+
+                &.active {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
             }
 
             #searchInput {
@@ -322,10 +327,32 @@ a {
 
             .advanced-search-toggled {
                 background-color: #333;
+                display: none;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+
+                &.active {
+                    display: block;
+                }
 
                 label {
                     color: #fff;
                     font-family: $secondaryFont;
+                }
+
+                .form-group {
+                    margin-right: 10px;
+                }
+
+                button {
+                    background-color: #fff;
+                    color: #333;
+                    font-family: $secondaryFont;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    border-radius: 5px;
+
                 }
 
                 .form-row {

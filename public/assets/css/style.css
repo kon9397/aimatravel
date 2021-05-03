@@ -264,6 +264,10 @@ a {
   background-color: #333;
   border-radius: 5px;
 }
+.search-section .advanced-search .advanced-search-form .search-input-group.active {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .search-section .advanced-search .advanced-search-form #searchInput {
   display: inline-block;
   width: 100%;
@@ -276,6 +280,9 @@ a {
 }
 .search-section .advanced-search .advanced-search-form .advanced-search-toggled {
   background-color: #333;
+  display: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   /* Hide the browser's default checkbox */
   /* Create a custom checkbox */
   /* On mouse-over, add a grey background color */
@@ -284,9 +291,24 @@ a {
   /* Show the checkmark when checked */
   /* Style the checkmark/indicator */
 }
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled.active {
+  display: block;
+}
 .search-section .advanced-search .advanced-search-form .advanced-search-toggled label {
   color: #fff;
   font-family: "Gilroy";
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled .form-group {
+  margin-right: 10px;
+}
+.search-section .advanced-search .advanced-search-form .advanced-search-toggled button {
+  background-color: #fff;
+  color: #333;
+  font-family: "Gilroy";
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 .search-section .advanced-search .advanced-search-form .advanced-search-toggled .form-row {
   display: flex;

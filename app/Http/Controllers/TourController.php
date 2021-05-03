@@ -84,4 +84,55 @@ class TourController extends Controller
         $tour = Tour::find($id);
         $tour->delete();
     }
+
+    public function searchTour(Request $request) {
+        $tours = Tour::all();
+        $results = [];
+
+        if(isset($request->tourName)) {
+            $tours = $tours->where('country', $request->tourName)->values();
+        }
+
+        if(isset($request->dateFrom)) {
+            $tours = $tours->where('tour_date', $request->dateFrom)->values();
+        }
+
+        if(isset($request->daysAmount)) {
+            $tours = $tours->where('days_amount', $request->daysAmount)->values();
+        }
+
+        if(isset($request->earlyBooked)) {
+            $results[] = $tours->where('tour_type', "Раннее бронирование")->values();
+        }
+        if(isset($request->guideTour)) {
+            $results[] = $tours->where('tour_type', "Экскурсионный тур")->values();
+        }
+        if(isset($request->touristInsurance)) {
+            $results[] = $tours->where('tour_insurance', 1)->values();
+        }
+        if(isset($request->holidaysTour)) {
+            $results[] = $tours->where('tour_type', "Туры на праздники")->values();
+        }
+        if(isset($request->packTour)) {
+            $results[] = $tours->where('tour_type', "Пакетные туры")->values();
+        }
+        if(isset($request->corpTours)) {
+            $results[] = $tours->where('tour_type', "Корпоративные туры")->values();
+        }
+        if(isset($request->covidTests)) {
+            $results[] = $tours->where('covid_test', 1)->values();
+        }
+
+        $preparedResult = [];
+
+        foreach ($results as $result) {
+            foreach ($result as $data) {
+                $preparedResult[] = $data;
+            }
+        }
+        if(empty($preparedResult)) {
+            return json_encode($tours, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+        }
+        return json_encode($preparedResult, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+    }
 }
