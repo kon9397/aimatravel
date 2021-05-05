@@ -14,6 +14,7 @@ $secondaryFont: "Gilroy";
 
 html, body {
     font-size: 16px;
+
 }
 
 a {
@@ -438,6 +439,13 @@ a {
                     transform: rotate(45deg);
                 }
 
+            }
+
+            .advanced-search-switcher {
+                font-family: $secondaryFont;
+                margin: 5px auto;
+                text-align: center;
+                cursor: pointer;
             }
 
         }

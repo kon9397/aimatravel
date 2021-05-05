@@ -376,6 +376,12 @@ a {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+.search-section .advanced-search .advanced-search-form .advanced-search-switcher {
+  font-family: "Gilroy";
+  margin: 5px auto;
+  text-align: center;
+  cursor: pointer;
+}
 .search-section .tour-card {
   width: 23%;
 }

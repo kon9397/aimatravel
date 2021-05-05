@@ -80,7 +80,7 @@
                 <option value="Пакетные туры" {{ $tour->tour_type === "Пакетные туры" ? 'selected' : '' }}>
                     Пакетные туры
                 </option>
-                <option value="Экскурсионнные туры" {{ $tour->tour_type === "Экскурсионнные туры" ? 'selected' : '' }}>
+                <option value="Экскурсионные туры" {{ $tour->tour_type === "Экскурсионные туры" ? 'selected' : '' }}>
                     Экскурсионные туры
                 </option>
                 <option value="Раннее бронирование" {{ $tour->tour_type === "Раннее бронирование" ? 'selected' : '' }}>

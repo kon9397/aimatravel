@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class TourController extends Controller
 {
     public function index() {
-        $tour = Tour::all();
+        $tour = Tour::with('hotel')->get();
         return view('index', ['tours' => $tour]);
     }
 
@@ -86,7 +86,7 @@ class TourController extends Controller
     }
 
     public function searchTour(Request $request) {
-        $tours = Tour::all();
+        $tours = Tour::with('hotel')->get();
         $results = [];
 
         if(isset($request->tourName)) {
@@ -101,12 +101,14 @@ class TourController extends Controller
             $tours = $tours->where('days_amount', $request->daysAmount)->values();
         }
 
+        if(isset($request->guideTour)) {
+            $results[] = $tours->where('tour_type', "Экскурсионные туры")->values();
+        }
+
         if(isset($request->earlyBooked)) {
             $results[] = $tours->where('tour_type', "Раннее бронирование")->values();
         }
-        if(isset($request->guideTour)) {
-            $results[] = $tours->where('tour_type', "Экскурсионный тур")->values();
-        }
+
         if(isset($request->touristInsurance)) {
             $results[] = $tours->where('tour_insurance', 1)->values();
         }

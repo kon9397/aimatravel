@@ -50,19 +50,20 @@
         <h3 class="tour-section-subtitle">За приємною ціною!</h3>
         <div class="tours-cards">
             <div class="flex-row">
-                <div class="tour-card">
+                @foreach($tours as $tour)
+                <div class="tour-card" style="background-image: url({{ URL::to($tour->photo_url) }});">
                     <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
+                        <p class="tour-price">{{$tour->price}} $</p>
+                        <p class="tour-days">{{$tour->days_amount}} ноч.</p>
                     </div>
-                    <h4 class="tour-city">Київ</h4>
+                    <h4 class="tour-city">{{$tour->tour_focus}}</h4>
                     <div class="tour-info">
                         <p class="date-from">
-                            Виїзд: 01.01.2021
+                            Виїзд: {{$tour->tour_date}}
                         </p>
                         <div class="flex-row">
                             <p class="hotel">
-                                Готель: Lorem Ipsum Standard
+                                {{$tour->hotel->hotel_name}}
                             </p>
                             <p class="place-from">
                                 Виліт: Київ
@@ -70,106 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/Odesa.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Одеса</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/Kharkiv.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Харків</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/lviv.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Львів</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/dnipro.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Дніпро</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/vinnitsa.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Вінниця</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="read-more">
@@ -253,166 +155,28 @@
         </div>
         <div class="tours-cards">
             <div class="flex-row">
-                <div class="tour-card">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
+                @foreach($tours as $tour)
+                   <div class="tour-card" style="background-image: url({{ URL::to($tour->photo_url) }});">
+                      <div class="tour-pricelist">
+                            <p class="tour-price">{{$tour->price}} $</p>
+                           <p class="tour-days">{{$tour->days_amount}} ноч.</p>
+                      </div>
+                       <h4 class="tour-city">{{$tour->tour_focus}}</h4>
+                       <div class="tour-info">
+                            <p class="date-from">
+                                Виїзд: {{$tour->tour_date}}
+                            </p>--}}
+                            <div class="flex-row">
+                               <p class="hotel">
+                                   {{$tour->hotel->hotel_name}}
+                               </p>--}}
+                                <p class="place-from">
+                                   Виліт: Київ
+                                </p>
+                           </div>
+                       </div>
                     </div>
-                    <h4 class="tour-city">Київ</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/Odesa.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Одеса</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/kharkiv.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Харків</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/lviv.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Львів</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/dnipro.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Дніпро</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/vinnitsa.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Вінниця</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/vinnitsa.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Вінниця</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tour-card" style="background-image: url({{URL::to('/assets/img/vinnitsa.png') }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">300$</p>
-                        <p class="tour-days">7 ноч.</p>
-                    </div>
-                    <h4 class="tour-city">Вінниця</h4>
-                    <div class="tour-info">
-                        <p class="date-from">
-                            Виїзд: 01.01.2021
-                        </p>
-                        <div class="flex-row">
-                            <p class="hotel">
-                                Готель: Lorem Ipsum Standard
-                            </p>
-                            <p class="place-from">
-                                Виліт: Київ
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="read-more">
