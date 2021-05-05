@@ -13,7 +13,7 @@
     <div class="flex-row">
         <div class="logo">
             <div class="logo-image"></div>
-            <h1 class="logo-name">GenericTravelName</h1>
+            <h1 class="logo-name">GenericTravelName {{ auth()->user() }}</h1>
         </div>
         <nav class="navbar">
             <a href="#">Головна</a>
