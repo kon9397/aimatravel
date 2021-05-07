@@ -21,7 +21,7 @@ use \App\Http\Controllers\SessionsController;
 
 Route::resource('/', TourController::class);
 
-Route::get('tours/add', "\App\Http\Controllers\TourController@addFormIndex");
+Route::get('tours/add', "\App\Http\Controllers\TourController@addFormIndex")->middleware('auth')->middleware('role:ROLE_ADMIN');
 Route::post('tours/add', array('as' => 'tour.store', 'uses' => '\App\Http\Controllers\TourController@addTour'));
 
 Route::get('tours/edit/{id}', "\App\Http\Controllers\TourController@editTour");
@@ -34,7 +34,9 @@ Route::get('auth/register', "\App\Http\Controllers\RegistrationController@create
 
 Route::post('auth/register', "\App\Http\Controllers\RegistrationController@store");
 
-Route::get('auth/login', "\App\Http\Controllers\SessionsController@create");
+Route::get('auth/login', "\App\Http\Controllers\SessionsController@create")->name('login');
 
 Route::post('auth/login', "\App\Http\Controllers\SessionsController@store");
 Route::get('auth/logout', "\App\Http\Controllers\SessionsController@destroy");
+
+Route::get('/admin', '\App\Http\Controllers\AdminController@index');
