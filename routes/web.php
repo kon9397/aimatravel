@@ -6,6 +6,8 @@ use \App\Http\Controllers\TourController;
 
 use \App\Http\Controllers\RegistrationController;
 
+use \App\Http\Controllers\SessionsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +33,8 @@ Route::get('tours/delete/{id}', '\App\Http\Controllers\TourController@deleteTour
 Route::get('auth/register', "\App\Http\Controllers\RegistrationController@create");
 
 Route::post('auth/register', "\App\Http\Controllers\RegistrationController@store");
+
+Route::get('auth/login', "\App\Http\Controllers\SessionsController@create");
+
+Route::post('auth/login', "\App\Http\Controllers\SessionsController@store");
+Route::get('auth/logout', "\App\Http\Controllers\SessionsController@destroy");
