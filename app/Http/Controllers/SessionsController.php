@@ -8,6 +8,9 @@ class SessionsController extends Controller
 {
     public function create()
     {
+        if(auth()->check()) {
+            return redirect('/');
+        }
         return view('sessions.create');
     }
 

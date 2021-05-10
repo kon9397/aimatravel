@@ -21,14 +21,14 @@ use \App\Http\Controllers\SessionsController;
 
 Route::resource('/', TourController::class);
 
-Route::get('tours/add', "\App\Http\Controllers\TourController@addFormIndex")->middleware('auth')->middleware('role:ROLE_ADMIN');
-Route::post('tours/add', array('as' => 'tour.store', 'uses' => '\App\Http\Controllers\TourController@addTour'));
+Route::get('admin/tours/add', "\App\Http\Controllers\TourController@addFormIndex")->middleware('auth')->middleware('role:ROLE_ADMIN');
+Route::post('admin/tours/add', array('as' => 'tour.store', 'uses' => '\App\Http\Controllers\TourController@addTour'))->middleware('auth')->middleware('role:ROLE_ADMIN');
 
-Route::get('tours/edit/{id}', "\App\Http\Controllers\TourController@editTour");
+Route::get('admin/tours/edit/{id}', "\App\Http\Controllers\TourController@editTour")->middleware('auth')->middleware('role:ROLE_ADMIN');
 
-Route::post('tours/edit/{id}', array('as' => 'tour.update', 'uses' => '\App\Http\Controllers\TourController@updateTour'));
+Route::post('admin/tours/edit/{id}', array('as' => 'tour.update', 'uses' => '\App\Http\Controllers\TourController@updateTour'))->middleware('auth')->middleware('role:ROLE_ADMIN');
 
-Route::get('tours/delete/{id}', '\App\Http\Controllers\TourController@deleteTour');
+Route::get('admin/tours/delete/{id}', '\App\Http\Controllers\TourController@deleteTour')->middleware('auth')->middleware('role:ROLE_ADMIN');
 
 Route::get('auth/register', "\App\Http\Controllers\RegistrationController@create");
 
@@ -39,4 +39,6 @@ Route::get('auth/login', "\App\Http\Controllers\SessionsController@create")->nam
 Route::post('auth/login', "\App\Http\Controllers\SessionsController@store");
 Route::get('auth/logout', "\App\Http\Controllers\SessionsController@destroy");
 
-Route::get('/admin', '\App\Http\Controllers\AdminController@index');
+Route::get('/admin', '\App\Http\Controllers\AdminController@index')->middleware('auth')->middleware('role:ROLE_ADMIN');
+
+Route::get('/admin/tours', '\App\Http\Controllers\TourController@show')->middleware('auth')->middleware('role:ROLE_ADMIN');

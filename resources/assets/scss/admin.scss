@@ -1,0 +1,36 @@
+html, body {
+  font-size: 16px;
+}
+
+header {
+  background-color: blue;
+  margin-bottom: 20px;
+
+  .flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width:30%;
+    color: #fff;
+  }
+
+  nav {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

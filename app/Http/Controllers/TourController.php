@@ -17,6 +17,11 @@ class TourController extends Controller
         return view('index', ['tours' => $tour]);
     }
 
+    public function show() {
+        $tours = Tour::all();
+        return view('tours.show', ['tours'=> $tours]);
+    }
+
     public function addFormIndex() {
         $hotels = Hotel::all();
         return view('tours.create', ['hotels' => $hotels]);
@@ -40,8 +45,11 @@ class TourController extends Controller
         $tour->tour_type = $request->input("tourType");
         $tour->photo_title = $request->input("photoName");
         $tour->hotel_id = $request->input("hotelId");
+        $tour->tour_date = $request->input('tourDate');
         $tour->visa = $request->input("visa");
         $tour->save();
+
+        return redirect('/admin/tours');
     }
 
     public function editTour($id) {
@@ -133,9 +141,10 @@ class TourController extends Controller
                 $preparedResult[] = $data;
             }
         }
+        $result = array_unique($preparedResult);
         if(empty($preparedResult)) {
             return json_encode($tours, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
         }
-        return json_encode($preparedResult, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+        return json_encode($result, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
     }
 }
