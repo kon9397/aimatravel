@@ -54,7 +54,7 @@
                 <div class="tour-card" style="background-image: url({{ URL::to($tour->photo_url) }});">
                     <div class="tour-pricelist">
                         <p class="tour-price">{{$tour->price}} $</p>
-                        <p class="tour-days">{{$tour->days_amount}} ноч.</p>
+                        <p class="tour-days">{{$tour->days_amount}} ночей</p>
                     </div>
                     <h4 class="tour-city">{{$tour->tour_focus}}</h4>
                     <div class="tour-info">
@@ -159,7 +159,7 @@
                    <div class="tour-card" style="background-image: url({{ URL::to($tour->photo_url) }});">
                       <div class="tour-pricelist">
                             <p class="tour-price">{{$tour->price}} $</p>
-                           <p class="tour-days">{{$tour->days_amount}} ноч.</p>
+                           <p class="tour-days">{{$tour->days_amount}} ночей</p>
                       </div>
                        <h4 class="tour-city">{{$tour->tour_focus}}</h4>
                        <div class="tour-info">

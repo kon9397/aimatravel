@@ -34,7 +34,9 @@ class TourController extends Controller
         $tour = new Tour();
         $tour->tour_code = $request->input("tourCode");
         $tour->country = $request->input("country");
+        $tour->country_toLowerCase = mb_strtolower($request->input("country"));
         $tour->tour_focus = $request->input("focus");
+        $tour->tour_focus_toLowerCase = mb_strtolower($request->input("focus"));
         $tour->price = $request->input("price");
         $tour->days_amount = $request->input("daysAmount");
         $tour->supply = $request->input("supply");
@@ -75,7 +77,9 @@ class TourController extends Controller
 
         $tour->tour_code = $request->input("tourCode");
         $tour->country = $request->input("country");
+        $tour->country_toLowerCase = strtolower($request->input("country"));
         $tour->tour_focus = $request->input("focus");
+        $tour->tour_focus_toLowerCase = $request->input("focus");
         $tour->price = $request->input("price");
         $tour->days_amount = $request->input("daysAmount");
         $tour->supply = $request->input("supply");
@@ -87,11 +91,15 @@ class TourController extends Controller
         $tour->hotel_id = $request->input("hotelId");
         $tour->visa = $request->input("visa");
         $tour->save();
+
+        return redirect('/admin/tours');
     }
 
     public function deleteTour($id) {
         $tour = Tour::find($id);
         $tour->delete();
+
+        return redirect('/admin/tours');
     }
 
     public function searchTour(Request $request) {
@@ -99,9 +107,13 @@ class TourController extends Controller
         $results = [];
 
         if(isset($request->tourName)) {
-            $tours = $tours->where('country', $request->tourName)->values();
+            $searchedTourCountry = $tours->where('country_toLowerCase', mb_strtolower($request->tourName))->values();
+            if($searchedTourCountry->count() > 0) {
+                $tours = $searchedTourCountry;
+            } else {
+                $tours = $tours->where('tour_focus_toLowerCase', mb_strtolower($request->tourName))->values();
+            }
         }
-
         if(isset($request->dateFrom)) {
             $tours = $tours->where('tour_date', $request->dateFrom)->values();
         }
