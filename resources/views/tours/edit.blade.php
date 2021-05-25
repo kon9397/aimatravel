@@ -75,6 +75,10 @@
             <input type="checkbox" {{ $tour->tour_insurance === 1 ? 'checked' : '' }} name="touristInsurance" id="touristInsurance">
         </div>
         <div class="form-group mb-3">
+            <label for="burningTour">Горящий тур</label>
+            <input type="checkbox" name="burningTour" id="burningTour">
+        </div>
+        <div class="form-group mb-3">
             <label for="tourType">Виды туров</label>
             <select class="form-control" name="tourType" id="tourType">
                 <option value="Пакетные туры" {{ $tour->tour_type === "Пакетные туры" ? 'selected' : '' }}>

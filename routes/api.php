@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('search-tour', "\App\Http\Controllers\TourController@searchTour");
+
+Route::get('tabs', "\App\Http\Controllers\TourController@getTab");
+
+Route::get('tour/{id}', "\App\Http\Controllers\TourController@getTourById");

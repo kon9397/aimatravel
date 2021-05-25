@@ -14,7 +14,7 @@ class TourController extends Controller
 {
     public function index() {
         $tour = Tour::with('hotel')->get();
-        return view('index', ['tours' => $tour]);
+        return view('index', ['tours' => $tour, 'categories' => ['Пакетные туры', 'Экскурсионные туры', 'Раннее бронирование', 'Туры на праздники', 'Корпоративные туры']]);
     }
 
     public function show() {
@@ -44,6 +44,7 @@ class TourController extends Controller
         $tour->photo_url = '/assets/img/' . $fileName;
         $tour->covid_test = $request->input("covidTest") === 'on' ? 1 : 0;
         $tour->tour_insurance = $request->input("touristInsurance") === 'on' ? 1 : 0;
+        $tour->burning_tour = $request->input("burningTour") === 'on' ? 1 : 0;
         $tour->tour_type = $request->input("tourType");
         $tour->photo_title = $request->input("photoName");
         $tour->hotel_id = $request->input("hotelId");
@@ -77,15 +78,16 @@ class TourController extends Controller
 
         $tour->tour_code = $request->input("tourCode");
         $tour->country = $request->input("country");
-        $tour->country_toLowerCase = strtolower($request->input("country"));
+        $tour->country_toLowerCase = mb_strtolower($request->input("country"));
         $tour->tour_focus = $request->input("focus");
-        $tour->tour_focus_toLowerCase = $request->input("focus");
+        $tour->tour_focus_toLowerCase = mb_strtolower($request->input("focus"));
         $tour->price = $request->input("price");
         $tour->days_amount = $request->input("daysAmount");
         $tour->supply = $request->input("supply");
         $tour->transport = $request->input("transport");
         $tour->covid_test = $request->input("covidTest") === 'on' ? 1 : 0;
         $tour->tour_insurance = $request->input("touristInsurance") === 'on' ? 1 : 0;
+        $tour->burning_tour = $request->input("burningTour") === 'on' ? 1 : 0;
         $tour->tour_type = $request->input("tourType");
         $tour->photo_title = $request->input("photoName");
         $tour->hotel_id = $request->input("hotelId");
@@ -159,4 +161,17 @@ class TourController extends Controller
         }
         return json_encode($result, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
     }
+
+    public function getTab(Request $request) {
+        $tours = Tour::with('hotel')->where('tour_type', $request->tourType)->get();
+
+        return json_encode($tours, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+    }
+
+    public function getTourById($id) {
+        $tours = Tour::with('hotel')->where('tour_id', $id)->first();
+
+        return json_encode($tours, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+    }
+
 }

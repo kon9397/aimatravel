@@ -71,6 +71,10 @@
             <input type="checkbox" name="touristInsurance" id="touristInsurance">
         </div>
         <div class="form-group mb-3">
+            <label for="burningTour">Горящий тур</label>
+            <input type="checkbox" name="burningTour" id="burningTour">
+        </div>
+        <div class="form-group mb-3">
             <label for="touristInsurance">Дата</label>
             <input type="date" name="tourDate" id="tourDate">
         </div>

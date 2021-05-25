@@ -9,11 +9,31 @@
     <link rel="stylesheet" href="{{URL::to('/assets/css/style.css') }}">
 </head>
 <body>
+<div class="overlay" data-modal="close"></div>
+<div class="modal">
+    <h2 class="tour-title">Название тура</h2>
+    <h3 class="tour-subtitle">Подназвание</h3>
+    <div class="flex-row">
+        <div class="tour-image">
+            <img src="{{URL::to('assets/img/1621539613_madrid-mae-otdyh-pogoda-8_1155354130.jpg')}}" alt="">
+        </div>
+        <div class="tour-info">
+            <p>Тип тура: </p>
+            <p>Дата: </p>
+            <p>Количество дней: </p>
+            <p>Питание:</p>
+            <p>Транспорт:</p>
+            <p>Отель:</p>
+            <p>Тест на ковид:</p>
+            <p>Туристическая страховка: </p>
+        </div>
+    </div>
+</div>
 <header class="main-header">
     <div class="flex-row">
         <div class="logo">
             <div class="logo-image"></div>
-            <h1 class="logo-name">GenericTravelName</h1>
+            <h1 class="logo-name">AimaTravel</h1>
         </div>
         <nav class="navbar">
             <a href="#">Головна</a>
@@ -48,14 +68,34 @@
     <div class="container">
         <h2 class="tour-section-title">Наші гарячі тури та путівки</h2>
         <h3 class="tour-section-subtitle">За приємною ціною!</h3>
+        <div class="tabs">
+            <div class="tab-row">
+                @foreach($categories as $category)
+                    <div class="tab" data-category="{{$category}}">{{ $category }}</div>
+                @endforeach
+            </div>
+        </div>
         <div class="tours-cards">
+            <div class="empty-message">
+                <h2 class="empty-message-title">Туров по данной категории пока нет</h2>
+                <h3 class="empty-message-subtitle">Следите за обновлениями</h3>
+            </div>
             <div class="flex-row">
                 @foreach($tours as $tour)
-                <div class="tour-card" style="background-image: url({{ URL::to($tour->photo_url) }});">
-                    <div class="tour-pricelist">
-                        <p class="tour-price">{{$tour->price}} $</p>
-                        <p class="tour-days">{{$tour->days_amount}} ночей</p>
+                <div data-modal="open" data-id="{{$tour->tour_id}}" class="tour-card {{ $tour->burning_tour === 1 ? 'burning' : '' }}" style="background-image: url({{ URL::to($tour->photo_url) }});">
+                    <div class="price">
+                        <div class="flex-row">
+                            <div class="burning-icon">
+                                <img src="{{ URL::to('assets/img/fire.svg') }}" alt="Burning tour icon">
+                            </div>
+
+                            <div class="tour-pricelist">
+                                <p class="tour-price">{{$tour->price}} $</p>
+                                <p class="tour-days">{{$tour->days_amount}} ночей</p>
+                            </div>
+                        </div>
                     </div>
+
                     <h4 class="tour-city">{{$tour->tour_focus}}</h4>
                     <div class="tour-info">
                         <p class="date-from">
@@ -95,9 +135,29 @@
         <h2 class="search-title">Знайдіть тур саме для вас</h2>
         <div class="advanced-search">
             <form class="advanced-search-form">
-                <div class="form-group search-input-group">
-                    <input type="text" id="searchInput" name="tourName" placeholder="Пошук">
+                <div class="search-input-group">
+                    <div class="flex-row">
+                        <div class="dropdown">
+                            <div class="current-item">
+                                Страна
+                            </div>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-item">Страна</li>
+                                <li class="dropdown-item">Отель</li>
+                            </ul>
+
+
+                        </div>
+                        <div class="search-line">
+                            <input type="text" id="searchInput" name="tourName" placeholder="Пошук">
+                        </div>
+
+                        <button class="btn">Пошук</button>
+
+                    </div>
                 </div>
+
+
                 <div class="advanced-search-toggled">
                     <div class="form-row">
                         <label class="checkbox-container">
@@ -156,25 +216,34 @@
         <div class="tours-cards">
             <div class="flex-row">
                 @foreach($tours as $tour)
-                   <div class="tour-card" style="background-image: url({{ URL::to($tour->photo_url) }});">
-                      <div class="tour-pricelist">
-                            <p class="tour-price">{{$tour->price}} $</p>
-                           <p class="tour-days">{{$tour->days_amount}} ночей</p>
-                      </div>
-                       <h4 class="tour-city">{{$tour->tour_focus}}</h4>
-                       <div class="tour-info">
+                    <div class="tour-card {{ $tour->burning_tour === 1 ? 'burning' : '' }}" style="background-image: url({{ URL::to($tour->photo_url) }});">
+                        <div class="price">
+                            <div class="flex-row">
+                                <div class="burning-icon">
+                                    <img src="{{ URL::to('assets/img/fire.svg') }}" alt="Burning tour icon">
+                                </div>
+
+                                <div class="tour-pricelist">
+                                    <p class="tour-price">{{$tour->price}} $</p>
+                                    <p class="tour-days">{{$tour->days_amount}} ночей</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="tour-city">{{$tour->tour_focus}}</h4>
+                        <div class="tour-info">
                             <p class="date-from">
                                 Виїзд: {{$tour->tour_date}}
-                            </p>--}}
+                            </p>
                             <div class="flex-row">
-                               <p class="hotel">
-                                   {{$tour->hotel->hotel_name}}
-                               </p>--}}
-                                <p class="place-from">
-                                   Виліт: Київ
+                                <p class="hotel">
+                                    {{$tour->hotel->hotel_name}}
                                 </p>
-                           </div>
-                       </div>
+                                <p class="place-from">
+                                    Виліт: Київ
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             </div>
@@ -222,5 +291,8 @@
 
 <script src="https://kit.fontawesome.com/9cb0211d53.js" crossorigin="anonymous"></script>
 <script src="{{URL::to('assets/js/app.js')}}"></script>
+<script src="{{URL::to('assets/js/tab.js')}}"></script>
+<script src="{{URL::to('assets/js/modal.js')}}"></script>
+<script src="{{URL::to('assets/js/dropdown.js')}}"></script>
 </body>
 </html>
